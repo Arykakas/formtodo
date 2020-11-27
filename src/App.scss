@@ -1,0 +1,15 @@
+.TodoApp {
+  width: 50%;
+  text-align: center;
+  margin: 7% auto;
+  .input-group {
+    width: 50%;
+    margin: 0 auto;
+  input {
+    outline: none;
+  }
+  button {
+    border-radius: 0;
+  }
+}
+}
