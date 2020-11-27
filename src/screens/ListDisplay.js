@@ -20,7 +20,10 @@ export const ListDisplay = ({
         console.log("List saveVal",newText)
         saveValue(id,newText)
         e.preventDefault();
-        
+    }
+    function showupdate(e) {
+        show()
+        e.preventDefault()
     }
     return (
         <div>
@@ -28,8 +31,8 @@ export const ListDisplay = ({
             {state.Items.map((item,index) => 
             (
                 <div key={index}>
-                    <input type="text" onChange={inputVal}  id={item.key}  defaultValue={item.text} />
-                    <button type="submit"  className="btn btn-sm">update</button>
+                    <input type="text" onChange={inputVal}  id={item.key} onClick={showupdate}  defaultValue={item.text} />
+                    <button type="submit" style={{'visibility' : `${state.update ? 'visible' : 'hidden'}`}}  className="btn btn-sm">update</button>
                 </div>
             ))}
             </form>

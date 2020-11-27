@@ -8,7 +8,8 @@ export class TodoApp extends React.Component {
         this.state = {
             Items : [],
             todoNow : "",
-            time : ''
+            time : '',
+            update : false
         }
     }
     todoinput = (event) => {
@@ -34,10 +35,15 @@ export class TodoApp extends React.Component {
             return item;
         })
         this.setState({
-            Items : updatedItems
+            Items : updatedItems,
+            update : false
         })
     }
-
+    _show = () => {
+        this.setState({
+            update : true
+        })
+    }
 
     render () {
         return (
@@ -51,7 +57,7 @@ export class TodoApp extends React.Component {
                         </div>
                     </div>
                 </form>
-                <ListDisplay  saveValue={this._updateTodo}  state={this.state} />
+                <ListDisplay  saveValue={this._updateTodo} show={this._show} state={this.state} />
             </div>
         )
     }
